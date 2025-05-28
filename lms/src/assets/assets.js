@@ -9,6 +9,7 @@ import walmart_logo from './walmart_logo.svg'
 import accenture_logo from './accenture_logo.svg'
 import adobe_logo from './adobe_logo.svg'
 import paypal_logo from './paypal_logo.svg'
+import about from './about.svg'
 import course_1_thumbnail from './course_1.png'
 import course_2_thumbnail from './course_2.png'
 import course_3_thumbnail from './course_3.png'
@@ -62,6 +63,7 @@ export const assets = {
     image_1,
     benga,
     image_4,
+    about,
     arrow_icon,
     dropdown_icon,
     cross_icon,
@@ -109,6 +111,10 @@ export const dummyTestimonial = [
         rating: 5,
         feedback: 'I\'ve been using Imagify for nearly two years, primarily for Instagram, and it has been incredibly user-friendly, making my work much easier.',
     },
+    {name: 'cala',
+    image: assets.about,
+    rating:4.5,
+},
     {
         name: 'Begna',
         role: 'SWE 2 @ Samsung',

@@ -12,7 +12,12 @@ app.use(express.json());
 
 // Routes
 app.get("/", (req, res) => res.send("API is working"));
-app.post("/clerk", clerkWebhooks);
+app.post('/clerk',  express.json(), clerkWebhooks);
+
+// Catch-all route for 404 errors
+app.use((req, res) => {
+  res.status(404).json({ success: false, message: "Route not found" });
+});
 
 // Connect to MongoDB
 connectDB().catch((err) => console.error("MongoDB connection error:", err));

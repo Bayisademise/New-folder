@@ -30,12 +30,18 @@ export const clerkWebhooks = async (req, res) => {
           name: `${data.first_name} ${data.last_name}`,
           imageUrl: data.image_url,
         };
-        await User.findByIdAndUpdate(data.id, userData);
+        const updatedUser = await User.findByIdAndUpdate(data.id, userData, { new: true });
+        if (!updatedUser) {
+          throw new Error("User not found for update");
+        }
         res.json({});
         break;
       }
       case "user.deleted": {
-        await User.findByIdAndDelete(data.id);
+        const deletedUser = await User.findByIdAndDelete(data.id);
+        if (!deletedUser) {
+          throw new Error("User not found for deletion");
+        }
         res.json({});
         break;
       }
@@ -43,6 +49,6 @@ export const clerkWebhooks = async (req, res) => {
         break;
     }
   } catch (error) {
-    res.json({ success: false, message: error.message });
+    res.status(400).json({ success: false, message: error.message });
   }
 };

@@ -7,19 +7,12 @@ import { clerkWebhooks } from "./controller/webhooks.js";
 const app = express();
 
 // Middleware
-await connectDB()
-app.use(cors())
+await connectDB();
+app.use(cors());
+app.use(express.json()); // Ensure JSON parsing for all routes
 
 // Routes
-app.get("/", (req, res) => res.send("API is working"))
-app.post('/clerk', express.json(), clerkWebhooks)
-
-// Start server only if not in Vercel environment
-
-  const PORT = process.env.PORT || 5000
-  app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-  });
-
+app.get("/", (req, res) => res.send("API is working"));
+app.post("/clerk", clerkWebhooks);
 
 export default app;

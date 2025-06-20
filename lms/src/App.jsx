@@ -14,7 +14,7 @@ import Loading from './Components/Students/Loading';
 import Footer from './Components/Students/Footer';
 import "quill/dist/quill.snow.css"
 import Dashboard from './Pages/Educator/Dashboard';
-import Aboutus from './Pages/Sudents/AboutUs';
+import Aboutus from './Pages/Sudents/Aboutus';
 import Homes from './Pages/Sudents/Homes';
 
 const App = () => {

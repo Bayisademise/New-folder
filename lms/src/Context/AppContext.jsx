@@ -1,10 +1,9 @@
-import { createContext, useEffect, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react'; // Add React
 import { dummyCourses } from '../assets/assets';
 import { useNavigate } from 'react-router-dom';
 import humanizeDuration from 'humanize-duration';
 
 export const AppContext = createContext();
-
 
 export const AppContextProvider = (props) => {
   const currency = import.meta.env.VITE_CURRENCY;
@@ -12,7 +11,7 @@ export const AppContextProvider = (props) => {
 
   const [allCourses, setAllCourses] = useState([]);
   const [isEducator, setIsEducator] = useState(true);
-  const [enrolledCourses,setEnrolledCourse] = useState([])
+  const [enrolledCourses, setEnrolledCourse] = useState([]); // Note: Typo in setEnrolledCourse
 
   // Fetch all courses
   const fetchAllCourses = () => {
@@ -64,17 +63,14 @@ export const AppContextProvider = (props) => {
     }, 0);
   };
 
-//Fetch Enrolled Course
-const fetchUserEnrolledCourse =async =>{
-  setEnrolledCourse(dummyCourses)
-
-}
-
-
+  // Fetch Enrolled Course
+  const fetchUserEnrolledCourse = async () => {
+    setEnrolledCourse(dummyCourses); // Note: Fix typo if needed
+  };
 
   useEffect(() => {
     fetchAllCourses();
-    fetchUserEnrolledCourse()
+    fetchUserEnrolledCourse();
   }, []);
 
   const value = {
@@ -86,7 +82,9 @@ const fetchUserEnrolledCourse =async =>{
     setIsEducator,
     calculateNoOfLecture,
     calculateChapterTime,
-    calculateCourseDuration,enrolledCourses,fetchUserEnrolledCourse
+    calculateCourseDuration,
+    enrolledCourses,
+    fetchUserEnrolledCourse,
   };
 
   return <AppContext.Provider value={value}>{props.children}</AppContext.Provider>;

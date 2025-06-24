@@ -17,7 +17,7 @@ const TestMonialSection = () => {
             <div className='flex items-center gap-4 px-5 py-4 bg-gray-500/10'>
               <a href={testimonial.link || '#'} target="_blank" rel="noopener noreferrer">
                 <img
-                  className='h-12 w-12 rounded-full transition-transform duration-300 hover:scale-110'
+                  className='h-12 w-12 rounded-full transition-transform duration-300 hover:scale-110 cursor-pointer'
                   src={testimonial.image}
                   alt={testimonial.name}
                 />

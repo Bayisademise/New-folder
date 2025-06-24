@@ -12,7 +12,9 @@ import SudentEnrollement from './Pages/Educator/SudentEnrollement';
 import Navbar from './Components/Students/Navbar';
 import Loading from './Components/Students/Loading';
 import Footer from './Components/Students/Footer';
-import "quill/dist/quill.snow.css"
+import Getstarted from './Pages/Sudents/Getstarted';
+import Learnmore from './Pages/Sudents/Learnmore';
+import "quill/dist/quill.snow.css";
 import Dashboard from './Pages/Educator/Dashboard';
 import Aboutus from './Pages/Sudents/Aboutus';
 import Homes from './Pages/Sudents/Homes';
@@ -25,15 +27,17 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Course-list/:input?" element={<CourseList />} />
+        <Route path="/getstarted" element={<Getstarted />} />
+        <Route path="/learnmore" element={<Learnmore />} />
         <Route path="/Course/:input" element={<CourseDetail />} />
         <Route path="/my-enrollment" element={<MyEnrollement />} />
         <Route path="/player/:courseId" element={<Player />} />
-        <Route path='/load' element ={<Loading />}/>
-        <Route  path='/about' element = {<Aboutus />}/>
-         <Route  path='/homess' element = {<Homes />}/>
-        <Route path='/footer' element ={<Footer />}/>
+        <Route path="/load" element={<Loading />} />
+        <Route path="/about" element={<Aboutus />} />
+        <Route path="/homess" element={<Homes />} />
+        <Route path="/footer" element={<Footer />} />
         <Route path="/educator" element={<Educator />}>
-          <Route path='/educator' element={<Dashboard />} />
+          <Route path="/educator" element={<Dashboard />} />
           <Route path="add-course" element={<AddCourse />} />
           <Route path="my-course" element={<MyCourse />} />
           <Route path="student-enrollment" element={<SudentEnrollement />} />
